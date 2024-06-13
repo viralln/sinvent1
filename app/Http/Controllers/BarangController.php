@@ -20,8 +20,12 @@ class BarangController extends Controller
 					->join('kategori', 'barang.kategori_id', '=', 'kategori.id')
 					->select('barang.id','barang.merk','barang.seri','barang.spesifikasi','barang.stok','barang.kategori_id',DB::raw('getKategori(kategori.kategori) as kat'))
                                         ->where('barang.id','like','%'.$request->search.'%')
-                                        ->orWhere('barang.merk','like','%'.$request->search.'%')
-               		                ->paginate(10);
+            ->orWhere('barang.merk', 'like', '%' . $request->search . '%')
+            ->orWhere('barang.seri', 'like', '%' . $request->search . '%')
+            ->orWhere('barang.spesifikasi', 'like', '%' . $request->search . '%')
+            ->orWhere('barang.stok', 'like', '%' . $request->search . '%')
+            ->orWhere('kategori.kategori', 'like', '%' . $request->search . '%')
+            ->paginate(10);
            
         }else {
             $rsetBarang = DB::table('barang')->select('kategori')
