@@ -187,7 +187,7 @@ try {
     }
 
     // [invent-03] Salah Satu Kategori
-    public function showAPIKategori($id)
+    public function getAPIOneKategori($id)
     {
         $kategori = Kategori::find($id);
         if (!$kategori) {

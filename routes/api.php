@@ -20,13 +20,3 @@ Route::delete('/kategori/{id}', [KategoriController::class, 'deleteAPIKategori']
 
 Route::put('kategori/{id}', [KategoriController::class, 'updateAPIKategori']);
 
-Route::get('barang', [BarangController::class, 'getAPIBarang']);
-
-Route::post('barang', [BarangController::class, 'createAPIBarang']);
-
-Route::get('barang/{id}', [BarangController::class, 'getAPIOneBarang']);
-
-Route::delete('/barang/{id}', [BarangController::class, 'deleteAPIBarang']);
-
-Route::put('barang/{id}', [BarangController::class, 'updateAPIBarang']);
-
